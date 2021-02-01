@@ -157,7 +157,7 @@ class OneEuroFilter {
         freq = 1.0 / (timestamp - lasttime) ;
       lasttime = timestamp ;
       // estimate the current variation per second
-      double dvalue = x->hasLastRawValue() ? (value - x->lastRawValue()) * freq : 0.0 ; // FIXME: 0.0 or value?
+      double dvalue = x->hasLastRawValue() ? (value - x->lastRawValue()) * freq : 0.0 ;
       double edvalue = dx->filterWithAlpha(dvalue, alpha(dcutoff)) ;
       // use it to update the cutoff frequency
       double cutoff = mincutoff + beta_ * fabs(edvalue) ;
